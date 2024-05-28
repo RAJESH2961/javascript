@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        button{
+            background-color: bisque;
+            color: black;
+            font-size: 2rem;
+        }
+    </style>
+</head>
+<body>
+    
+
+    <button id="submit1">Roll</button>
+    <h2 id="data1">0</h2>
+    <h2 id="data2">0</h2>
+
+    
+</body>
+<script>
+    // var random = Math.floor(Math.random()*10);//0-9
+    // var random = Math.floor(Math.random()*10) + 1;//0-10
+    
+    // const min = 500;
+    // const max = 100;
+    // var random = Math.floor(Math.random()*min) + max;//100-149
+    // var random = Math.floor(Math.random() * (max-min)) + min;//100-149
+    // console.log(random);
+    // document.getElementById('data').textContent = random;
+
+    document.getElementById('submit1').onclick = function(){
+        const min = 0
+        const max = 6;
+        var random1 = Math.floor(Math.random() * (max-min)) + min;
+        var random2 = Math.floor(Math.random() * (max-min)) + min;
+    // console.log(random);
+        document.getElementById('data1').textContent = random1;
+        document.getElementById('data2').textContent = random2;
+        
+    }
+</script>
+</html>
+

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="data"></p>
+    Enter A Starting Range<input type="number" id="start">
+    Enter A Starting Range<input type="number" id="end">
+
+    <button id="submit1">Generate a Random Number</button>
+
+    
+</body>
+<script>
+    // var random = Math.floor(Math.random()*10);//0-9
+    // var random = Math.floor(Math.random()*10) + 1;//0-10
+    
+    // const min = 500;
+    // const max = 100;
+    // var random = Math.floor(Math.random()*min) + max;//100-149
+    // var random = Math.floor(Math.random() * (max-min)) + min;//100-149
+    // console.log(random);
+    // document.getElementById('data').textContent = random;
+
+    document.getElementById('submit1').onclick = function(){
+        const min = Number(document.getElementById('start').value);
+        const max = Number(document.getElementById('end').value);
+        var random = Math.floor(Math.random() * (max-min)) + min;//100-149
+    // console.log(random);
+        document.getElementById('data').textContent = random;
+        
+    }
+</script>
+</html>
+
