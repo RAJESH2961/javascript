@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let min = 20;
+        let max = 23;
+        let running = true;
+        let random = Math.floor(Math.random() * (max - min + 1) + min); // Generate random number between min and max
+        // 0.5 * (23-20) +20 
+        //0.5 * (3) + 20
+        //1.5 ie 1 +20 ==21
+
+        while (running) {
+            let mychoice = window.prompt(`Enter Number Between ${min} - ${max}`);
+            let choice = Number(mychoice);
+
+            if (isNaN(choice)) {
+                window.alert("Please enter a valid number");
+            } else {
+                if (choice < random) {
+                    window.alert("Too low");
+                } else if (choice > random) {
+                    window.alert("Too high");
+                } else {
+                    window.alert(`You win! The answer is ${random}`);
+                    running = false; // Set the running flag to false to stop the loop
+                }
+            }
+        }
+    </script>
+</body>
+</html>

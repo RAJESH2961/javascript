@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        let logged = false;
+        let password;
+        let username;
+        while(!logged){
+            username = window.prompt("Enter Username : ")
+            password = window.prompt("Enter Password : ")
+            if(username == " " && password == "" ){
+                console.log("Password shouldnt be Empty")
+            }
+            else if(username==password){
+                console.log("Password Username should not same")
+            }
+            else{
+                logged = true;
+                console.log("Logged IN")
+
+            }
+        }
+    </script>
+</body>
+</html>

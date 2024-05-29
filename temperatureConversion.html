@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Conversion</title>
+    <style>
+        body {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            background-color: bisque;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        h1 {
+            color: blueviolet;
+        }
+        #conversionForm {
+            text-align: center;
+            width: 300px;
+            background-color: rgb(255, 154, 22);
+            padding: 2rem;
+            box-shadow: 2px 3px 25px rgb(0, 0, 0);
+            border-radius: 10px;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        input[type="radio"] {
+            margin: 0.5rem 0;
+        }
+        button {
+            padding: 0.5rem 1rem;
+            background-color: blueviolet;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: darkviolet;
+        }
+    </style>
+</head>
+<body>
+    <!-- <form id="conversionForm" onsubmit="convert(event)"> -->
+        <div id="conversionForm">
+        <h1>Temperature Conversion</h1>
+        <input type="number" id="input" value="" placeholder="0.00">
+        <br>
+        <input type="radio" name="unit" id="toFahrenheit">
+        <label for="toFahrenheit">Celsius to Fahrenheit</label>
+        <br>
+        <input type="radio" name="unit" id="toCelsius">
+        <label for="toCelsius">Fahrenheit to Celsius</label>
+        <p id="result"></p>
+        <button type="submit" onclick="convert()">Submit</button>
+    <!-- </form> -->
+</div>
+
+    <script>
+        function convert() {
+            // event.preventDefault();  // Prevent form submission and page reload
+            let input = document.getElementById('input');
+            let toFahrenheit = document.getElementById('toFahrenheit');
+            let toCelsius = document.getElementById('toCelsius');
+            let result = document.getElementById('result');
+            
+            let inputValue = parseFloat(input.value);
+
+            if (isNaN(inputValue)) {
+                result.textContent = "Please enter a valid number";
+                return;
+            }
+
+            if (toFahrenheit.checked) {
+                let fahrenheit = (inputValue * 9/5) + 32;
+                result.textContent = `${inputValue}°C is ${fahrenheit.toFixed(2)}°F`;
+            } else if (toCelsius.checked) {
+                let celsius = (inputValue - 32) * 5/9;
+                result.textContent = `${inputValue}°F is ${celsius.toFixed(2)}°C`;
+            } else {
+                result.textContent = "Please select a conversion unit";
+            }
+        }
+    </script>
+</body>
+</html>

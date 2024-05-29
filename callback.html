@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function welcome(){
+            console.log("Hello Welcome ");
+        }
+        function bye(){
+            console.log("Bye !");
+        }
+        welcome();
+        bye();
+        //lets say what if welcome() takes 5 sec to excetue and bye() takes 1 sec to execute the bye() will execute first
+        //to overcome this problem we use call back function
+        //It will ensure that a function is executed after the particualr fun is done
+
+        // example
+        function greet(acceptingsendoff){//Accepting sendoff() as a callback
+            console.log("Welcome");
+            acceptingsendoff();
+        }
+        function sendoff(){
+            console.log("Bye See You Again !");
+        }
+        greet(sendoff);//Passing send back() as an argument
+
+    </script>
+    
+</body>
+</html>

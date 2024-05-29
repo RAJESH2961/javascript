@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //rest parameters is Opposite to Spreadoperator
+        //spread expands an array into seperate Elamants
+        //bundles seperate elements into an array
+        function sum(...numbers){
+            let result = 0;
+            for(let number of numbers){
+                result += number;
+            }
+            return result;
+        }
+        console.log(sum(1, 2, 3, 4, 5))
+        //Calculates an Average of the data
+        function avg(...numbers){
+            let result = 0;
+            for (let number of numbers){
+                result += number;
+            }
+            return result / numbers.length;
+        }
+        console.log(avg(1, 2, 3, 43))
+        //joins the string
+        function joins(...strings){
+            return strings.join(" ");
+        }
+        const fullname = joins("G", "Rajesh")
+        console.log(fullname)
+
+    </script>
+    
+</body>
+</html>

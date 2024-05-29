@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        button{
+            background-color: bisque;
+            color: black;
+            font-size: 2rem;
+        }
+    </style>
+</head>
+<body>
+    
+    <input type="text" name="" id="vote">
+    <h2 id="data2">0</h2>
+    <button id="submit1">CHECK</button>
+
+
+    
+</body>
+<script>
+    // var random = Math.floor(Math.random()*10);//0-9
+    // var random = Math.floor(Math.random()*10) + 1;//0-10
+    
+    // const min = 500;
+    // const max = 100;
+    // var random = Math.floor(Math.random()*min) + max;//100-149
+    // var random = Math.floor(Math.random() * (max-min)) + min;//100-149
+    // console.log(random);
+    // document.getElementById('data').textContent = random;
+
+    document.getElementById('submit1').onclick = function(){
+       age = document.getElementById('vote').value;
+       let voteable = (age < 18) ? "Too young":"Old enough";        
+        document.getElementById('data2').textContent = voteable;
+        
+    }
+</script>
+</html>
+
