@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-image: url('clock.jpeg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        .clock-container{
+            /* background-color: red; */
+            display: flex;
+            justify-content: center;
+            height : 100vh;
+            align-items: center;
+        }
+        .clock{
+            font-size: 5rem;
+            font-weight: 700;
+            color: aliceblue;
+            border: 2px solid rgb(236, 229, 229);
+            width: 500px;
+            text-align: center;
+            backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body>
+    <div class="clock-container">
+        <div class="clock">00.00.00</div>
+    </div>
+    <script>
+        function displayTime(){
+            const now= new Date();
+            const hours = now.getHours().toString().padStart(2,0);
+            const min = now.getMinutes().toString().padStart(2,0);
+            const sec = now.getSeconds().toString().padStart(2,0);
+            let medium = hours>12 ? 'AM' : 'PM';
+
+            const time = `${hours}:${min}:${sec}-${medium}`;
+            document.querySelector('.clock').textContent = time;
+
+        }
+        setInterval(displayTime, 1000);
+        displayTime();
+    </script>
+</body>
+</html>

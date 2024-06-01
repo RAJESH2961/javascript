@@ -13,3 +13,13 @@ console.log(data);
 //deleting the object
 delete data.laptop
 console.log(data);
+
+
+//BRO CODEE
+let person = {
+    name : "Rajesh",
+    age : 21,
+    gender : "male",
+    greet : () => console.log("Hello"),
+}
+person.greet()

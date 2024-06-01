@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StopWatch</title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        .container{
+            background-color: aquamarine;
+            width: 300px;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        button{
+            background-color: blanchedalmond;
+            border: none;
+            height: 45px;
+            width: 90px;
+            border-radius: 5px;
+            margin-top: 2rem;
+            transition: 0.5s ease;
+            cursor: pointer;
+        }
+        .display{
+            font-size: 2.3rem;
+            font-family: monospace;
+            text-shadow: 2px 2px 5px black;
+        }
+        #startBtn{
+            background-color: rgb(0, 255, 0);
+        }
+        #startBtn:hover{
+            background-color: rgb(104, 209, 66);
+        }
+        #stopBtn{
+            background-color: rgb(255, 234, 0);
+        }
+        #stopBtn:hover{
+            background-color: rgb(213, 226, 34);
+        }
+        #resetBtn{
+            background-color: rgb(0, 21, 255);
+        }
+        #resetBtn:hover{
+            background-color: rgba(66, 61, 213, 0.809);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="display" id="display">
+            00:00:00:00
+        </div>
+        <div class="controls">
+            <button id="startBtn" onclick="start()">Start</button>
+            <button id="stopBtn" onclick="stop()">Stop</button>
+            <button id="resetBtn" onclick="reset()">Reset</button>
+        </div>
+    </div>
+    <script>
+        let display = document.getElementById("display");
+        let timer = null;
+        let startTime = 0;
+        let elapsedTime = 0;
+        let isRunning = false;
+
+        function start() {
+            if (!isRunning) {
+                startTime = Date.now() - elapsedTime;
+                timer = setInterval(update, 10); // update the function every 10 ms//callback()
+                isRunning = true;
+            }
+        }
+
+        function stop() {
+            if (isRunning) {
+                clearInterval(timer);
+                elapsedTime = Date.now() - startTime;
+                isRunning = false;
+            }
+        }
+
+        function reset() {
+            clearInterval(timer);
+            elapsedTime = 0;
+            display.textContent = "00:00:00:00";
+            isRunning = false;
+        }
+
+        function update() {
+            const currentTime = Date.now();
+            elapsedTime = currentTime - startTime;
+
+            let hours = Math.floor(elapsedTime / (1000 * 60 * 60));
+            let minutes = Math.floor((elapsedTime % (1000 * 60 * 60)) / (1000 * 60));
+            let seconds = Math.floor((elapsedTime % (1000 * 60)) / 1000);
+            let milliseconds = Math.floor((elapsedTime % 1000) / 10);
+
+            display.textContent = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}:${String(milliseconds).padStart(2, '0')}`;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error Handling</title>
+</head>
+<body>
+    <label for="a">Enter A Value</label>
+    <input type="text" name="a" id="a">
+    <br>
+    <label for="b">Enter B Value</label>
+    <input type="text" name="b" id="b">
+    <button onclick="submit()">Divide</button>
+    <p id="result"></p>
+
+    <script>
+        function submit() {
+            let dividend = parseFloat(document.getElementById('a').value);
+            let divisor = parseFloat(document.getElementById('b').value);
+            let resultElement = document.getElementById('result');
+            
+            try {
+                if (isNaN(dividend) || isNaN(divisor)) {
+                    throw new Error('Both values must be numbers');
+                }
+                if (divisor === 0) {
+                    throw new Error('Cannot divide by zero');
+                }
+                let result = dividend / divisor;
+                resultElement.textContent = `Result: ${result}`;
+            } catch (error) {
+                resultElement.textContent = `Error: ${error.message}`;
+                console.error(error);
+            }
+        }
+    </script>
+</body>
+</html>

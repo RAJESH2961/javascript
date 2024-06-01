@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="heading">Welcome</h1>
+
+    <div class="fruits">Apple</div>
+    <div class="fruits">banana</div>
+    <div class="fruits">Orange</div>
+    <div class="fruits">Grapes</div>
+
+    <h3>Root Vegetables</h3>
+    <ul>
+        <li>carrot</li>
+        <li>Potatoes</li>
+        <li>cabbage</li>
+    </ul>
+
+    <h3>Non-Root Vegetables</h3>
+    <ul>
+        <li>Brinjal</li>
+        <li>Onion</li>
+        <li>cauliflower</li>
+    </ul>
+    <script>
+        let name = document.getElementById('heading');
+        name.style.textAlign = "center"
+        name.style.color = "red"
+
+        console.log(name);//styling will done automatically
+
+        // style pay attention to - to camelcase
+        // text-align : center;
+        // textAlign : center
+
+        let fruits = document.getElementsByClassName('fruits');
+        // fruits[0].style.textAlign = "center" ;
+        // ---------------or?
+
+        // for(let fruit of fruits){
+        //     fruit.style.textAlign = "center";
+        // }
+
+        //we can convert them into array
+        Array.from(fruits).forEach(fruit =>{
+            fruit.style.textAlign = "center";
+        })
+        console.log(fruits)
+
+        let veg = document.getElementsByTagName('h3')
+        console.log(veg);
+
+        //Changing the color of an element
+        veg[1].style.color = "red";
+        for(let element of veg){
+            element.style.color = "red";
+        }
+        //clanging the Ul tag
+        let ul = document.getElementsByTagName('ul')
+
+        ul[1].style.textAlign = 'center';
+        ul[1].style.listStyle = 'None';
+
+        //using for Each loop
+        for (let ele of ul){
+            ele.style.color = 'blue';
+        }
+        // or convert them into an array
+        Array.from(ul).forEach(element => {
+            element.style.color = 'orange';
+        })
+
+        //Query Selector
+        // it returns first Element or Null
+        let element = document.querySelector('h3')
+        element.style.backgroundColor = 'blue';
+
+        //Query All()//It will Give a Node list
+        let data = document.querySelectorAll('li')
+        data[1].style.backgroundColor = "yellow";
+        console.log(data);
+        //similar to class but in class we need to convert to Array
+        // in Node list
+        data.forEach(food =>{
+            food.style.color = "orangered";
+        })
+
+
+    </script>
+    
+</body>
+</html>

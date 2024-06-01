@@ -30,3 +30,4 @@ function welcome({name, age, ...data1}){
     // console.log(`Welcome ${gender} `)
 }
 welcome(data1)
+

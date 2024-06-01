@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="sample" style="background-color: yellow; border: 2px; width: 200px; height: 200px;" >
+    </div>
+    <h1>Hello</h1>
+    <div class="box" id="box1" style="width: 600px; height:  200px; border: 2px solid black; margin-top: 14px;"></div>
+    <div class="box" id="box2" style="width: 600px; height:  200px; border: 2px solid black; margin-top: 14px;"></div>
+    <div class="box" id="box3" style="width: 600px; height:  200px; border: 2px solid black; margin-top: 14px;"></div>
+
+    <script>
+        //step-1 create the Element
+        const element = document.createElement('h1');
+
+        //step-2 Add the Attributes to it
+        element.textContent = "Created using js"
+        element.style.color = 'red';
+        element.style.textAlign = 'center';
+
+        //step-3 Append the Element zto dom
+        // document.body.append(element)//adds in last
+        // document.body.prepend(element)//adds in first
+
+        //Adding Using selectors
+        document.getElementById("sample").append(element);
+
+        //step-4 Deltet the Element
+
+
+        // Insert Before
+        let box_2 = document.getElementById("box2")
+        // here we are selecting body because box-1, box-2 are childs of the body
+        // New (element,currentElement)
+        document.body.insertBefore(element, box_2);
+
+        //using Query selector
+        let box = document.querySelectorAll('.box')
+        document.body.insertBefore(element, box[2])
+
+        //Removing the Element
+        document.body.removeChild(element)
+
+        //Removing Element By ID
+        document.getElementById("box2").remove(box)
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #myBox{
+            background-color: aqua;
+            width: 150px;
+            height: 150px;
+            display: flex;
+            text-align: center;
+            justify-content: center;
+            font-size: 7rem;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="myBox">😁</div>
+    <script>
+        document.addEventListener("keydown", (event)=>{
+            console.log(event);
+        })
+        document.addEventListener("keyup", (event)=> {
+            console.log(`key = ${event.key}`);
+        })
+        const div = document.getElementById('myBox')
+        document.addEventListener("keydown", (event) =>{
+            div.textContent = "🙃"
+        })
+        document.addEventListener("keyup", (event) =>{
+            div.textContent = "😁"
+        })
+    </script>
+    
+</body>
+</html>
