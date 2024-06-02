@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #button{
+            /* background-color: red; */
+            color: white;
+            font-size: xx-large;
+            border: none;
+        }
+        .hover{
+            background-color: aqua;
+            width: 200px;
+            box-shadow: 10px 10px 10px red;
+        }
+    </style>
+</head>
+<body>
+    <button id="button">Button-1</button>
+
+    <script>
+        const btn =document.getElementById("button");
+        //Adding css class using Javascript
+        // btn.classList.add("hover");
+        //Removing css class using Javascript
+        // btn.classList.remove("hover");
+
+        //Add or remove 
+        // btn.addEventListener("mouseover", (event) => {
+        //     event.target.classList.add("hover");
+        // })
+        // btn.addEventListener("mouseout", (event) => {
+        //     event.target.classList.remove("hover");
+        // })
+        //Toggle() same as Add or Remove
+        btn.addEventListener("mouseover", (event) => {
+            event.target.classList.toggle("hover");
+        })
+        btn.addEventListener("mouseout", (event) => {
+            event.target.classList.toggle("hover");
+        })
+    </script>
+    
+</body>
+</html>

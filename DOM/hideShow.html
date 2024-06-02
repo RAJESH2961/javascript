@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            width: 400px;
+            height: 200px;
+        }
+        button{
+            width:100px;
+            height: 40px;
+        }
+    </style>
+</head>
+<body>
+    <img src="clock.jpeg" alt="" id="myImg">
+    <br>
+    <button id="myBtn">Hide</button>
+
+
+    <script>
+        let button = document.getElementById("myBtn");
+        let img = document.getElementById("myImg");
+
+        //element.add Event listner (event, callback)
+        
+
+        // button.addEventListener('click', () => {
+        //     if(img.style.display === "none"){
+        //         button.textContent = "Hide";
+        //         img.style.display = "block";
+            
+        // }
+        // else{
+        //     button.textContent = "Show";
+        //     img.style.display = "none";
+        //     }
+        // })
+
+        //to reserve Space
+        button.addEventListener('click', () => {
+            if(img.style.visibility === "hidden"){
+                button.textContent = "Hide";
+                img.style.visibility = "visible";
+            
+        }
+        else{
+            button.textContent = "Show";
+            img.style.visibility = "hidden";
+            }
+        })
+    </script>
+    
+</body>
+</html>
